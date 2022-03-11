@@ -1,11 +1,17 @@
 package com.example.quizmobilapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
     String urli="http://10.0.2.2/api/user";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RequestQueue queue = Volley.newRequestQueue(this);
+        /*RequestQueue queue = Volley.newRequestQueue(this);
         Button btnsend=findViewById(R.id.btn_Send);
        final String name;
         final String price;
@@ -68,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
                       }
               );
               queue.add(getRequest);
-          } });
-}
+          } });*/
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(i);
+            }
+        },1000);
     }
+}

@@ -11,14 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class LoginActivity extends AppCompatActivity {
     String email,password;
     EditText et_Email,et_Password;
     Button btn_Login,btn_Reg;
+    LocalStorage localStorage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        localStorage = new LocalStorage(LoginActivity.this);
         et_Email = findViewById(R.id.et_Email);
         et_Password = findViewById(R.id.et_Password);
         btn_Login=findViewById(R.id.btn_Login);
@@ -48,9 +53,64 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void sendLogin() {
-        Intent i=new Intent(this,UserActivity.class);
-        startActivity(i);
-        finish();
+        JSONObject params= new JSONObject();
+        try {
+            params.put("email",email);
+            params.put("password",password);
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        String data = params.toString();
+        String url = getString(R.string.api_server)+"/login";
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Http http = new Http(LoginActivity.this,url);
+                http.setMethod("POST");
+                http.setData(data);
+                http.send();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Integer code = http.getStatusCode();
+                        if(code == 200){
+                            try{
+                                JSONObject response = new JSONObject(http.getResponse());
+                                String token = response.getString("token");
+                                localStorage.setToken(token);
+                               Intent i = new Intent(LoginActivity.this,UserActivity.class);
+                               startActivity(i);
+                                finish();
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                            }
+                        }
+                        else if(code ==422){
+                            try{
+                               JSONObject response = new JSONObject(http.getResponse());
+                               String msg = response.getString("message");
+                               alertFail(msg);
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                            }
+                        }
+                        else if(code == 401){
+                            try{
+                                JSONObject response = new JSONObject(http.getResponse());
+                                String msg = response.getString("message");
+                                alertFail(msg);
+                            }catch (JSONException e){
+                                e.printStackTrace();
+                            }
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     private void alertFail(String s) {

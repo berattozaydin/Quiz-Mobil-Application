@@ -1,5 +1,6 @@
 package com.example.quizmobilapp;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 
 public class UserActivity extends AppCompatActivity {
 TextView tvName,tvEmail,tvid;
+LocalStorage localStorage;
 Button logOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -23,7 +23,7 @@
         android:layout_marginTop="20dp">
 
         <RadioButton
-            android:id="@+id/a"
+            android:id="@+id/a_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -31,21 +31,21 @@
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/b"
+            android:id="@+id/b_btn"
             android:layout_width="match_parent"
             android:checked="false"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/c"
+            android:id="@+id/c_btn"
             android:checked="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/d"
+            android:id="@+id/d_btn"
             android:layout_width="match_parent"
             android:checked="false"
             android:layout_height="wrap_content"

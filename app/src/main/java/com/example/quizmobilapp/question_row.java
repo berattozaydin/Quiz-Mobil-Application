@@ -21,16 +21,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class question_row extends AppCompatActivity {
-RadioButton a,b,c,d;
+//RadioButton a,b,c,d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_row2);
-        a=(RadioButton)findViewById(R.id.a);
+       /* a=(RadioButton)findViewById(R.id.a);
         b=(RadioButton)findViewById(R.id.b);
         c=(RadioButton)findViewById(R.id.c);
-        d=(RadioButton)findViewById(R.id.d);
+        d=(RadioButton)findViewById(R.id.d);*/
     }
 }
 

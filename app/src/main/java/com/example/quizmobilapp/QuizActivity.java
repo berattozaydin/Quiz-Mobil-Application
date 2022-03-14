@@ -71,9 +71,9 @@ public class QuizActivity extends AppCompatActivity {
                                 lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-                                       Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
-                                       intent.putExtra("slug", array.get(i).toString());
-                                       startActivity(intent);
+                                        Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
+                                        intent.putExtra("data",array.get(i).get("slug").toString());
+                                        startActivity(intent);
                                       // finish();
 
 

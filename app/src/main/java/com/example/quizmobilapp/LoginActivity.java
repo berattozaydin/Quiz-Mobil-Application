@@ -1,11 +1,16 @@
 package com.example.quizmobilapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -111,6 +116,24 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         }).start();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_ac,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+switch (item.getItemId()){
+    case R.id.item1:
+        break;
+    case R.id.item2:
+        System.exit(0);
+        break;
+}
+        return super.onOptionsItemSelected(item);
     }
 
     private void alertFail(String s) {

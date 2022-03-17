@@ -8,6 +8,8 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,52 +33,10 @@ import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
-
-
-    String urli="http://10.0.2.2/api/user";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*RequestQueue queue = Volley.newRequestQueue(this);
-        Button btnsend=findViewById(R.id.btn_Send);
-       final String name;
-        final String price;
-      btnsend.setOnClickListener(new View.OnClickListener(){
-          @Override
-          public void onClick(View view) {
-              String name;
-              String price;
-
-              JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, urli, null,
-                      new Response.Listener<JSONObject>()
-                      {
-                          @Override
-                          public void onResponse(JSONObject response) {
-                              try{
-                                 Log.d("A",response.getString("name"));
-                                  Log.d("B",response.getString("price"));
-
-                              }catch (Exception e){
-                                  Log.e("e", "onResponse: "+e);
-                              }
-                          }
-                      },
-                      new Response.ErrorListener()
-                      {
-                          @Override
-                          public void onErrorResponse(VolleyError error) {
-                              Log.d("Error.Response", String.valueOf(error));
-                          }
-                      }
-              );
-              queue.add(getRequest);
-          } });*/
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -84,5 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         },1000);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_ac,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

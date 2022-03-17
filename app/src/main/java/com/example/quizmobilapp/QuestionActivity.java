@@ -27,6 +27,7 @@ public class QuestionActivity extends AppCompatActivity {
     int currentpost;
     int score=0;
     int questionsayisi=0,totalQuestionNumber=0;
+    ResultSend resultSend = new ResultSend();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +57,7 @@ public class QuestionActivity extends AppCompatActivity {
                             try {
                                 JSONObject response = new JSONObject(http.getResponse());
                                 JSONArray jsonArry = response.getJSONArray("sorulars");
-                              //  ListView lv = (ListView) findViewById(R.id.listView2);
+                                //  ListView lv = (ListView) findViewById(R.id.listView2);
                                 ArrayList<HashMap<String,String>> array = new ArrayList<>();
                                 for(int i=0;i<jsonArry.length();i++){
                                     HashMap<String,String> quest = new HashMap<>();
@@ -67,89 +68,74 @@ public class QuestionActivity extends AppCompatActivity {
                                     quest.put("c",obj.getString("c"));
                                     quest.put("d",obj.getString("d"));
                                     quest.put("correctanswer",obj.getString("correctanswer"));
-                                   totalQuestionNumber++;
-                                   array.add(quest);
+                                    totalQuestionNumber++;
+                                    array.add(quest);
 
                                 }
-                                /*ListAdapter adapter = new SimpleAdapter(QuestionActivity.this, array, R.layout.activity_list_row2,new String[]{"question","a","b","c","d"}, new int[]{R.id.question,R.id.a, R.id.b,R.id.c,R.id.d});
-                                lv.setAdapter(adapter);*/
-                              /*  rgroup = (RadioGroup) findViewById(R.id.rGroup);
-                                a=(RadioButton)findViewById(R.id.a);
-                                b=(RadioButton)findViewById(R.id.b);
-                                c=(RadioButton)findViewById(R.id.c);
-                                d=(RadioButton)findViewById(R.id.d);
-if(a.isChecked()){
-   int radioid = rgroup.getCheckedRadioButtonId();
-}*/
-                                JSONObject params = new JSONObject();
-                                try{
-                                    params.put("slug",data);
-                                }catch (JSONException e){
-                                    e.printStackTrace();
-                                }
-                                String data = params.toString();
-                                http.setMethod("POST");
-                                http.setData(data);
-                                http.send();
-                               // currentpost= random.nextInt(array.size());
                                 setdata(questionsayisi,array);
-a.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        if (array.get(questionsayisi).get("correctanswer").trim().toLowerCase().equals(a.getTag().toString().trim().toLowerCase())) {
-            score++;
-        }
-        if(totalQuestionNumber==questionsayisi+1){
-        Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
-        }else{
-        questionsayisi++;
-        setdata(questionsayisi,array);
-        }
-    }
-});
-b.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view){
-            if (array.get(questionsayisi).get("correctanswer").trim().toLowerCase().equals(b.getTag().toString().trim().toLowerCase())) {
-                score++;
-            }
-        if(totalQuestionNumber==questionsayisi+1){
-            Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
-        }else{
-            questionsayisi++;
-            setdata(questionsayisi,array);
-        }
-    }
-});
-c.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        if (array.get(questionsayisi).get("correctanswer").trim().toLowerCase().equals(c.getTag().toString().trim().toLowerCase())) {
-            score++;
-        }
-        if(totalQuestionNumber==questionsayisi+1){
-            Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
-        }else{
-            questionsayisi++;
-            setdata(questionsayisi,array);
-        }
-    }
-});
-d.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        if (array.get(currentpost).get("correctanswer").trim().toLowerCase().equals(d.getTag().toString().trim().toLowerCase())) {
-            score++;
-        }
-        if(totalQuestionNumber==questionsayisi+1){
-            Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
-
-        }else{
-            questionsayisi++;
-            setdata(questionsayisi,array);
-        }
-    }
-});
+                                a.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        if (array.get(questionsayisi).get("correctanswer").trim().toLowerCase().equals(a.getTag().toString().trim().toLowerCase())) {
+                                            score++;
+                                        }
+                                        if(totalQuestionNumber==questionsayisi+1){
+                                           // Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
+                                            jsonDataSend(totalQuestionNumber,score,data);
+                                            finish();
+                                        }else{
+                                            questionsayisi++;
+                                            setdata(questionsayisi,array);
+                                        }
+                                    }
+                                });
+                                b.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view){
+                                        if (array.get(questionsayisi).get("correctanswer").trim().toLowerCase().equals(b.getTag().toString().trim().toLowerCase())) {
+                                            score++;
+                                        }
+                                        if(totalQuestionNumber==questionsayisi+1){
+                                            //Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
+                                            jsonDataSend(totalQuestionNumber,score,data);
+                                            finish();
+                                        }else{
+                                            questionsayisi++;
+                                            setdata(questionsayisi,array);
+                                        }
+                                    }
+                                });
+                                c.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        if (array.get(questionsayisi).get("correctanswer").trim().toLowerCase().equals(c.getTag().toString().trim().toLowerCase())) {
+                                            score++;
+                                        }
+                                        if(totalQuestionNumber==questionsayisi+1){
+                                          //  Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
+                                           jsonDataSend(totalQuestionNumber,score,data);
+                                            finish();
+                                        }else{
+                                            questionsayisi++;
+                                            setdata(questionsayisi,array);
+                                        }
+                                    }
+                                });
+                                d.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        if (array.get(currentpost).get("correctanswer").trim().toLowerCase().equals(d.getTag().toString().trim().toLowerCase())) {
+                                            score++;
+                                        }
+                                        if(totalQuestionNumber==questionsayisi+1){
+                                            jsonDataSend(totalQuestionNumber,score,data);
+                                            finish();
+                                        }else{
+                                            questionsayisi++;
+                                            setdata(questionsayisi,array);
+                                        }
+                                    }
+                                });
                             } catch (JSONException e) {
                                 e.printStackTrace();
 
@@ -158,15 +144,50 @@ d.setOnClickListener(new View.OnClickListener() {
                     }
                 });
             }}).start();
-}
+    }
 
     private void setdata(int currentpost,ArrayList<HashMap<String,String>> array) {
-            questionsay.setText("sayi " + questionsayisi);
-            tv_question.setText(array.get(currentpost).get("question").toString());
-            a.setText(array.get(currentpost).get("a").toString());
-            b.setText(array.get(currentpost).get("b").toString());
-            c.setText(array.get(currentpost).get("c").toString());
-            d.setText(array.get(currentpost).get("d").toString());
+        questionsay.setText("sayi " + questionsayisi);
+        tv_question.setText(array.get(currentpost).get("question").toString());
+        a.setText(array.get(currentpost).get("a").toString());
+        b.setText(array.get(currentpost).get("b").toString());
+        c.setText(array.get(currentpost).get("c").toString());
+        d.setText(array.get(currentpost).get("d").toString());
+
+    }
+    public void jsonDataSend(int totalQuestionNumber,int score,String data){
+      //  LocalStorage localStorage;
+        String url = getString(R.string.api_server)+"/quiz"+"/"+data+"/sonucs";
+        JSONObject params= new JSONObject();
+        try {
+            params.put("slug",data);
+            params.put("dogrusayisi",score);
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        String yolla = params.toString();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Http http= new Http(QuestionActivity.this,url);
+                http.setMethod("POST");
+                http.setData(yolla);
+                http.setToken(true);
+                http.send();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Integer code = http.getStatusCode();
+                        if(code == 200){
+                            Toast.makeText(QuestionActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            Toast.makeText(QuestionActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }).start();
 
     }
 

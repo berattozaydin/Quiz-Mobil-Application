@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class UserActivity extends AppCompatActivity {
 TextView tvName,tvEmail,tvid;
 LocalStorage localStorage;
-Button logOut;
+Button logOut,quizEntered;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,7 @@ Button logOut;
         tvEmail=findViewById(R.id.et_StudentEmail);
         tvid=findViewById(R.id.et_Studentid);
         logOut=findViewById(R.id.btn_Logout);
+        quizEntered=findViewById(R.id.quizEnter);
         getuser();
 logOut.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -36,15 +37,12 @@ logOut.setOnClickListener(new View.OnClickListener() {
 });
     }
 
-
-
     private void getuser() {
        String url =  getString(R.string.api_server)+"/user";
        new Thread(new Runnable() {
            @Override
            public void run() {
                Http http= new Http(UserActivity.this,url);
-               //http.setMethod("GET");
                http.setToken(true);
                http.send();
                runOnUiThread(new Runnable() {

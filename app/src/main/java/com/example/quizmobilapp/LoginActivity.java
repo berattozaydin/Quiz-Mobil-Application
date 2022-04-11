@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.Application;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -117,6 +119,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }).start();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -149,4 +152,5 @@ switch (item.getItemId()){
                 })
                 .show();
     }
+
 }

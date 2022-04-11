@@ -6,53 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <EditText
+        android:id="@+id/et_RegPasswordConformation"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Şifre Onay"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_RegPasswordConf" />
+
+    <EditText
+        android:id="@+id/et_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="136dp"
+        android:ems="10"
+        android:hint="Adınız ve Soyadınız"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_RegisterConf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Kayıt Ol"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegPasswordConformation"
-        tools:layout_editor_absoluteX="141dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_RegPasswordConformation" />
 
     <EditText
         android:id="@+id/et_RegEmailConf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
+        android:hint="Email Adresi"
         android:inputType="textEmailAddress"
-        app:layout_constraintTop_toBottomOf="@+id/et_Name"
-        tools:layout_editor_absoluteX="98dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Name" />
 
     <EditText
         android:id="@+id/et_RegPasswordConf"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="Şifre"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegEmailConf"
-        tools:layout_editor_absoluteX="98dp" />
-
-    <EditText
-        android:id="@+id/et_Name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="98dp" />
-
-    <EditText
-        android:id="@+id/et_RegPasswordConformation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegPasswordConf"
-        tools:layout_editor_absoluteX="98dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_RegEmailConf" />
 </androidx.constraintlayout.widget.ConstraintLayout>

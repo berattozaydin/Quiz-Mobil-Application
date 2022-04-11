@@ -44,6 +44,7 @@ public class Http {
     }
     public void send(){
         try{
+
             URL sUrl= new URL(url);
             HttpURLConnection connection = (HttpURLConnection) sUrl.openConnection();
             connection.setRequestMethod(method);

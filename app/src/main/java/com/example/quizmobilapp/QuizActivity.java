@@ -1,25 +1,21 @@
 package com.example.quizmobilapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 
 public class QuizActivity extends AppCompatActivity {
     TextView tv;
@@ -39,11 +35,11 @@ public class QuizActivity extends AppCompatActivity {
         //listView = (ListView) findViewById(android.R.id.list);
         //tv = findViewById(R.id.quizid);
         String url =  getString(R.string.api_server)+"/liste";
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Http http= new Http(QuizActivity.this,url);
-                //http.setMethod("GET");
                 http.setToken(true);
                 http.send();
                 runOnUiThread(new Runnable() {
@@ -56,7 +52,6 @@ public class QuizActivity extends AppCompatActivity {
                                 ArrayList<HashMap<String, String>> array = new ArrayList<>();
                                 ListView lv = (ListView) findViewById(R.id.listView1);
                                 JSONArray jsonArry = response.getJSONArray("data");
-
                                 for(int i=0;i<jsonArry.length();i++){
                                     HashMap<String,String> user = new HashMap<>();
                                     JSONObject obj = jsonArry.getJSONObject(i);
@@ -74,16 +69,13 @@ public class QuizActivity extends AppCompatActivity {
                                         Intent intent = new Intent(getApplicationContext(),QuestionActivity.class);
                                         intent.putExtra("data",array.get(i).get("slug").toString());
                                         startActivity(intent);
-                                      // finish();
-
-
                                     }
                                 });
                             }catch(JSONException e){
                                 e.printStackTrace();
                             }
                         }else{
-                            Toast.makeText(QuizActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(QuizActivity.this,"Sınavınız Bitti Uygulamayı Kapatın",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -3,9 +3,11 @@ package com.example.quizmobilapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,7 +23,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class QuestionActivity extends AppCompatActivity {
-    TextView tv_question,questionsay;
+    TextView tv_question;
+    ImageView imageView;
     Button a,b,c,d;
     Random random;
     int currentpost;
@@ -33,7 +36,7 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         tv_question=findViewById(R.id.tv_Question);
-        questionsay=findViewById(R.id.questionSayi);
+        imageView=findViewById(R.id.imageView2);
         a=findViewById(R.id.btn_a);
         b=findViewById(R.id.btn_b);
         c=findViewById(R.id.btn_c);
@@ -145,18 +148,32 @@ public class QuestionActivity extends AppCompatActivity {
                 });
             }}).start();
     }
-
+    private String temizle(String metin){
+        String temizMetin = "";
+        for (int i = 0; i < metin.length(); i++) {
+           if(i==0){
+               i+=3;
+           }
+            if (metin.charAt(i) >= 'A' && metin.charAt(i) <= 'Z' || metin.charAt(i) >= 'a' && metin.charAt(i) <= 'z' || metin.charAt(i)==' ') {
+                temizMetin += metin.charAt(i);
+            }
+            if(i==(metin.length()-4)){
+                break;
+            }
+        }
+        return temizMetin;
+    }
     private void setdata(int currentpost,ArrayList<HashMap<String,String>> array) {
-        questionsay.setText("sayi " + questionsayisi);
-        tv_question.setText(array.get(currentpost).get("question").toString());
-        a.setText(array.get(currentpost).get("a").toString());
-        b.setText(array.get(currentpost).get("b").toString());
-        c.setText(array.get(currentpost).get("c").toString());
-        d.setText(array.get(currentpost).get("d").toString());
+      //  questionsay.setText("sayi " + questionsayisi);
+        tv_question.setText(temizle(array.get(currentpost).get("question").toString()));
+        a.setText(temizle(array.get(currentpost).get("a").toString()));
+        b.setText(temizle(array.get(currentpost).get("b").toString()));
+        c.setText(temizle(array.get(currentpost).get("c").toString()));
+        d.setText(temizle(array.get(currentpost).get("d").toString()));
 
     }
     public void jsonDataSend(int totalQuestionNumber,int score,String data){
-      //  LocalStorage localStorage;
+
         String url = getString(R.string.api_server)+"/quiz"+"/"+data+"/sonucs";
         JSONObject params= new JSONObject();
         try {
@@ -179,10 +196,10 @@ public class QuestionActivity extends AppCompatActivity {
                     public void run() {
                         Integer code = http.getStatusCode();
                         if(code == 200){
-                            Toast.makeText(QuestionActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(QuestionActivity.this,"Sınavınız Bitti Uygulamayı Kapatın",Toast.LENGTH_SHORT).show();
                         }
                         else{
-                            Toast.makeText(QuestionActivity.this,"Error"+code,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(QuestionActivity.this,"Sınavınız Bitti Uygulamayı Kapatın",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

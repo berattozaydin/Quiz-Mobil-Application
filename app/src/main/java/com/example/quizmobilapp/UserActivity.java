@@ -28,13 +28,13 @@ Button logOut,quizEntered;
         logOut=findViewById(R.id.btn_Logout);
         quizEntered=findViewById(R.id.quizEnter);
         getuser();
-logOut.setOnClickListener(new View.OnClickListener() {
+        logOut.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
 
         logout();
-    }
-});
+             }
+        });
     }
 
     private void getuser() {

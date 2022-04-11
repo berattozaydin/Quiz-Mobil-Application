@@ -10,8 +10,9 @@
         android:id="@+id/tv_Question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="52dp"
         android:text="TextView"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,20 +22,18 @@
         android:id="@+id/btn_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Button"
         android:tag="a"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Question" />
+        android:text="Button"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="296dp" />
 
     <Button
         android:id="@+id/btn_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Button"
         android:tag="b"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="Button"
         android:tag="c"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,19 +56,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Button"
         android:tag="d"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_c" />
 
-    <TextView
-        android:id="@+id/questionSayi"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="142dp" />
+        app:srcCompat="@drawable/ic_launcher_foreground"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="126dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

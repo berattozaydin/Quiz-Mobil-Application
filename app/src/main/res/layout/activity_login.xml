@@ -2,10 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/cardview_light_background"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"><![CDATA[
     tools:context=".LoginActivity">
+
+
+
+
 
 
 
@@ -21,8 +25,10 @@
         android:id="@+id/btn_RegisterScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="76dp"
+        android:background="#1B3AE8"
+        android:backgroundTint="#2A42C6"
         android:text="Kayıt Ol"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Password" />
@@ -33,9 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
         android:layout_marginTop="76dp"
+        android:background="#2E47CF"
         android:text="Giriş Yap"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/btn_RegisterScreen"
         app:layout_constraintTop_toBottomOf="@+id/et_Password" />
 
@@ -48,7 +55,7 @@
         android:hint="Şifreniz"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Email" />
 
@@ -56,12 +63,12 @@
         android:id="@+id/et_Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="160dp"
         android:ems="10"
         android:hint="Email Adresiniz"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

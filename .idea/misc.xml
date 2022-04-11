@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1615" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1615" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/drawable/ic_launcher_quizler_background.xml" value="0.2295" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_list_row2.xml" value="0.25" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_question.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_question.xml" value="0.33" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_questions.xml" value="0.12462006079027356" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_quiz.xml" value="0.2" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
@@ -16,6 +19,11 @@
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/layout/simple_list_item_1.xml" value="0.21603260869565216" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/menu/menu.xml" value="0.2518518518518518" />
         <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/menu/menu_ac.xml" value="0.2518518518518518" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1405" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_quizler.xml" value="0.1615" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_quizler_round.xml" value="0.1615" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_quizlerr.xml" value="0.1615" />
+        <entry key="..\:/Users/Berat/Desktop/quizmobilapp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1405" />
       </map>
     </option>
   </component>

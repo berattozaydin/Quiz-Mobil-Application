@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,6 +68,7 @@ public class QuestionActivity extends AppCompatActivity {
                                     HashMap<String,String> quest = new HashMap<>();
                                     JSONObject obj = jsonArry.getJSONObject(i);
                                     quest.put("question",obj.getString("question"));
+                                    quest.put("image_question",obj.getString("image_question"));
                                     quest.put("a",obj.getString("a"));
                                     quest.put("b",obj.getString("b"));
                                     quest.put("c",obj.getString("c"));
@@ -166,6 +169,9 @@ public class QuestionActivity extends AppCompatActivity {
     private void setdata(int currentpost,ArrayList<HashMap<String,String>> array) {
       //  questionsay.setText("sayi " + questionsayisi);
         tv_question.setText(temizle(array.get(currentpost).get("question").toString()));
+        if(array.get(currentpost).get("image_question").toString()!=null){
+            Picasso.get().load("http://beratozaydin.org/"+array.get(currentpost).get("image_question").toString()).into(imageView);
+        }
         a.setText(temizle(array.get(currentpost).get("a").toString()));
         b.setText(temizle(array.get(currentpost).get("b").toString()));
         c.setText(temizle(array.get(currentpost).get("c").toString()));

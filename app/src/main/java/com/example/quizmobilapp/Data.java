@@ -2,16 +2,13 @@ package com.example.quizmobilapp;
 
 public class Data {
     String id,title,slug,finished_at;
-    public Data(){
-
-    }
+    public Data(){ }
     public Data(String id,String title,String slug,String finished_at){
         this.id=id;
         this.title=title;
         this.slug=slug;
         this.finished_at=finished_at;
     }
-
     public String getId() {
         return id;
     }

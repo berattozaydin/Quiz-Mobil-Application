@@ -16,26 +16,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 public class QuizActivity extends AppCompatActivity {
     TextView tv;
     String name, description;
     LocalStorage localStorage;
-   // ListView listView;
-
     Data data;
-    //ArrayList<HashMap> arrayList = new ArrayList<>();
     ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
     public static ArrayList<Data> dataArrayList = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        //listView = (ListView) findViewById(android.R.id.list);
-        //tv = findViewById(R.id.quizid);
         String url =  getString(R.string.api_server)+"/liste";
-
         new Thread(new Runnable() {
             @Override
             public void run() {

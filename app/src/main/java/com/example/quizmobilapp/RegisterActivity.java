@@ -81,7 +81,6 @@ btn_Reg.setOnClickListener(new View.OnClickListener() {
 
                         }catch (JSONException e){
                             e.printStackTrace();
-
                         }
                     }else{
                             Toast.makeText(RegisterActivity.this,"Error"+code,Toast.LENGTH_LONG).show();
@@ -92,7 +91,6 @@ btn_Reg.setOnClickListener(new View.OnClickListener() {
             }
         }).start();
     }
-
     private void writescreen(String s) {
         new AlertDialog.Builder(this)
                 .setTitle("Başarılı")

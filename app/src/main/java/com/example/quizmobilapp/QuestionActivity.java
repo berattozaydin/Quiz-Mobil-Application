@@ -2,9 +2,11 @@ package com.example.quizmobilapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,25 +22,42 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 public class QuestionActivity extends AppCompatActivity {
-    TextView tv_question;
+    TextView tv_question,txtTimer;
     ImageView imageView;
     Button a,b,c,d;
     Random random;
     int currentpost;
     int score=0;
     int questionsayisi=0,totalQuestionNumber=0;
-    ResultSend resultSend = new ResultSend();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         tv_question=findViewById(R.id.tv_Question);
         imageView=findViewById(R.id.imageView2);
+        txtTimer=findViewById(R.id.txt_Timer);
+        new CountDownTimer(4000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                NumberFormat f = new DecimalFormat("00");
+                long min = (millisUntilFinished / 60000) % 60;
+                long sec = (millisUntilFinished / 1000) % 60;
+                txtTimer.setText(f.format(min) + ":" + f.format(sec));
+            }
+            public void onFinish() {
+                txtTimer.setText("00:00:00");
+                Toast.makeText(QuestionActivity.this,"Süreniz Bitti Hesaptan Çıkış Yapıldı Uygulamayı Kapatın",Toast.LENGTH_SHORT).show();
+                UserActivity userActivity = new UserActivity();
+                userActivity.logout();
+                System.exit(0);
+            }
+        }.start();
         a=findViewById(R.id.btn_a);
         b=findViewById(R.id.btn_b);
         c=findViewById(R.id.btn_c);
@@ -62,7 +81,6 @@ public class QuestionActivity extends AppCompatActivity {
                             try {
                                 JSONObject response = new JSONObject(http.getResponse());
                                 JSONArray jsonArry = response.getJSONArray("sorulars");
-                                //  ListView lv = (ListView) findViewById(R.id.listView2);
                                 ArrayList<HashMap<String,String>> array = new ArrayList<>();
                                 for(int i=0;i<jsonArry.length();i++){
                                     HashMap<String,String> quest = new HashMap<>();
@@ -76,7 +94,6 @@ public class QuestionActivity extends AppCompatActivity {
                                     quest.put("correctanswer",obj.getString("correctanswer"));
                                     totalQuestionNumber++;
                                     array.add(quest);
-
                                 }
                                 setdata(questionsayisi,array);
                                 a.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +103,6 @@ public class QuestionActivity extends AppCompatActivity {
                                             score++;
                                         }
                                         if(totalQuestionNumber==questionsayisi+1){
-                                           // Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
                                             jsonDataSend(totalQuestionNumber,score,data);
                                             finish();
                                         }else{
@@ -102,7 +118,6 @@ public class QuestionActivity extends AppCompatActivity {
                                             score++;
                                         }
                                         if(totalQuestionNumber==questionsayisi+1){
-                                            //Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
                                             jsonDataSend(totalQuestionNumber,score,data);
                                             finish();
                                         }else{
@@ -118,7 +133,6 @@ public class QuestionActivity extends AppCompatActivity {
                                             score++;
                                         }
                                         if(totalQuestionNumber==questionsayisi+1){
-                                          //  Toast.makeText(getApplicationContext(),"Score" + score,Toast.LENGTH_LONG).show();
                                            jsonDataSend(totalQuestionNumber,score,data);
                                             finish();
                                         }else{
@@ -144,7 +158,6 @@ public class QuestionActivity extends AppCompatActivity {
                                 });
                             } catch (JSONException e) {
                                 e.printStackTrace();
-
                             }
                         }
                     }
@@ -167,19 +180,17 @@ public class QuestionActivity extends AppCompatActivity {
         return temizMetin;
     }
     private void setdata(int currentpost,ArrayList<HashMap<String,String>> array) {
-      //  questionsay.setText("sayi " + questionsayisi);
         tv_question.setText(temizle(array.get(currentpost).get("question").toString()));
-        if(array.get(currentpost).get("image_question").toString()!=null){
+        if(array.get(currentpost).get("image_question").toString()!=null)
+        {
             Picasso.get().load("http://beratozaydin.org/"+array.get(currentpost).get("image_question").toString()).into(imageView);
         }
         a.setText(temizle(array.get(currentpost).get("a").toString()));
         b.setText(temizle(array.get(currentpost).get("b").toString()));
         c.setText(temizle(array.get(currentpost).get("c").toString()));
         d.setText(temizle(array.get(currentpost).get("d").toString()));
-
     }
     public void jsonDataSend(int totalQuestionNumber,int score,String data){
-
         String url = getString(R.string.api_server)+"/quiz"+"/"+data+"/sonucs";
         JSONObject params= new JSONObject();
         try {
@@ -211,7 +222,5 @@ public class QuestionActivity extends AppCompatActivity {
                 });
             }
         }).start();
-
     }
-
 }

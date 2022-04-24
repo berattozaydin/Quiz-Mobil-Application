@@ -49,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void controllogin() {
+    private void controllogin()
+    {
         email=et_Email.getText().toString();
         password=et_Password.getText().toString();
         if(email.isEmpty() && password.isEmpty())
@@ -58,8 +58,8 @@ public class LoginActivity extends AppCompatActivity {
         else
             sendLogin();
     }
-
-    private void sendLogin() {
+    private void sendLogin()
+    {
         JSONObject params= new JSONObject();
         try {
             params.put("email",email);
@@ -119,26 +119,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         }).start();
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_ac,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-switch (item.getItemId()){
+    switch (item.getItemId()){
     case R.id.item1:
         break;
     case R.id.item2:
         System.exit(0);
         break;
-}
+        }
         return super.onOptionsItemSelected(item);
     }
-
     private void alertFail(String s) {
         new AlertDialog.Builder(this)
                 .setTitle("Fail")
@@ -152,5 +149,4 @@ switch (item.getItemId()){
                 })
                 .show();
     }
-
 }

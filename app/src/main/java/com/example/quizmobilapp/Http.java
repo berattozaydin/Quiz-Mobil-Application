@@ -15,36 +15,28 @@ public class Http {
     private Integer statusCode=0;
     private Boolean token=false;
     private LocalStorage localStorage;
-
-
     public Http(Context context, String url){
         this.context=context;
         this.url=url;
         localStorage = new LocalStorage(context);
-
     }
     public void setMethod(String method) {
         this.method = method;
     }
-
     public void setData(String data) {
         this.data = data;
     }
-
     public void setToken(Boolean token) {
         this.token = token;
     }
-
     public String getResponse() {
         return response;
     }
-
     public Integer getStatusCode() {
         return statusCode;
     }
     public void send(){
         try{
-
             URL sUrl= new URL(url);
             HttpURLConnection connection = (HttpURLConnection) sUrl.openConnection();
             connection.setRequestMethod(method);
@@ -77,9 +69,8 @@ public class Http {
             }
             br.close();
             response=sb.toString();
-        }catch (IOException e){
+             }catch (IOException e){
             e.printStackTrace();
-
         }
     }
 }

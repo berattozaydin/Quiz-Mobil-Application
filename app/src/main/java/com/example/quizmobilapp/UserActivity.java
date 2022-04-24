@@ -71,14 +71,14 @@ Button logOut,quizEntered;
            }
        }).start();
     }
-   private void logout() {
+   public void logout() {
         String url = getString(R.string.api_server)+"/logout";
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Http http= new Http(UserActivity.this,url);
                 http.setMethod("POST");
-                http.setToken(true);
+                http.setToken(false);
                 http.send();
                 runOnUiThread(new Runnable() {
                     @Override

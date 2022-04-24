@@ -14,10 +14,13 @@ public class ResultSend extends AppCompatActivity {
         LocalStorage localStorage;
         String url = getString(R.string.api_server)+"/quiz"+"/"+data+"/sonucs";
         JSONObject params= new JSONObject();
-        try {
+        try
+        {
             params.put("slug",data);
             params.put("dogrusayisi",score);
-        }catch (JSONException e){
+        }
+        catch (JSONException e)
+        {
             e.printStackTrace();
         }
         String yolla = params.toString();

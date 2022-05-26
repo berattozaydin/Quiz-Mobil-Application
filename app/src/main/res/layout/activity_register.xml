@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
     tools:context=".RegisterActivity">
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_RegPasswordConformation"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -14,12 +15,13 @@
         android:ems="10"
         android:hint="Şifre Onay"
         android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_RegPasswordConf" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_Name"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -27,22 +29,26 @@
         android:ems="10"
         android:hint="Adınız ve Soyadınız"
         android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_RegisterConf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
         android:text="Kayıt Ol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_RegPasswordConformation" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_RegEmailConf"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -50,12 +56,13 @@
         android:ems="10"
         android:hint="Email Adresi"
         android:inputType="textEmailAddress"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Name" />
 
-    <EditText
+    <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/et_RegPasswordConf"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -63,6 +70,7 @@
         android:ems="10"
         android:hint="Şifre"
         android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"

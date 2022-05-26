@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".QuestionActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_Question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,48 +17,64 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:tag="a"
         android:text="Button"
+        android:background="@drawable/mybutton"
+        android:theme="@style/Button.White"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:tag="b"
         android:text="Button"
+        android:background="@drawable/mybutton"
+        android:theme="@style/Button.White"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_a" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_c"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:tag="c"
         android:text="Button"
+        android:textColor="@android:color/white"
+        android:theme="@style/Button.White"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_b" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_d"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:tag="d"
         android:text="Button"
+        android:textColor="@android:color/white"
+        android:theme="@style/Button.White"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -76,12 +92,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_Question"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_Timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textColor="#EF1B1B"
+        android:background="@drawable/mybutton"
+        android:theme="@style/Button.White"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
